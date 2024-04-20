@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useNavigate } from "react-router";
 
 import { USER_CREDENTIAL } from "../../constants/const";
@@ -8,7 +8,7 @@ function WithOnlyPublic(Component) {
   const PublicOnlyComponent = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       const user = localStorage?.getItem(USER_CREDENTIAL);
       if (user) {
         navigate(HOME);

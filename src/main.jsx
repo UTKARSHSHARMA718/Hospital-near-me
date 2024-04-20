@@ -8,11 +8,11 @@ import { router } from "./config.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <GoogleOAuthProvider clientId={process?.env?.REACT_APP_GOOGLE_CLIENT_ID}>
-      <GlobalProvider>
-        <RouterProvider {...{ router }} />
-      </GlobalProvider>
-    </GoogleOAuthProvider>
-  </React.StrictMode>
+  // <React.StrictMode> // Commented this peace of code in-order to get rid of the issue of Map's markers re-positioning
+  <GoogleOAuthProvider clientId={process?.env?.REACT_APP_GOOGLE_CLIENT_ID}>
+    <GlobalProvider>
+      <RouterProvider {...{ router }} />
+    </GlobalProvider>
+  </GoogleOAuthProvider>
+  // </React.StrictMode>
 );
