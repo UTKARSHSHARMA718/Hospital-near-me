@@ -28,7 +28,6 @@ const Map = ({
           styles: mapStyles,
         }}
         onChange={(value) => {
-          console.log({ value });
           setMapCenter({
             lat: value?.center?.lat,
             lng: value?.center?.lng,

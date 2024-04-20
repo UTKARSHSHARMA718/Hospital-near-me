@@ -1,0 +1,15 @@
+.container {
+  padding: 8px;
+  background: #000;
+  width: 200px;
+}
+
+.option {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.label{
+    font-size: 16px;
+}
