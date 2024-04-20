@@ -25,3 +25,5 @@ export const INFO_POINTS = [
     icon: FaHospitalUser,
   },
 ];
+
+export const DEFAULT_CENTER = { lat: 28.6511181, lng: 77.4459297 };

@@ -6,12 +6,13 @@ const useUserLocation = ({ isGetUserLocationOnInitialLoad = false }) => {
     lng: null,
   });
 
-  const getUserCurrentLocation = () => {
+  const getUserCurrentLocation = (callBack) => {
     navigator?.geolocation?.getCurrentPosition((position) => {
       setLocation({
         lat: position?.coords?.latitude,
         lng: position?.coords?.longitude,
       });
+      callBack?.(position?.coords?.latitude, position?.coords?.longitude);
     });
   };
 
@@ -21,7 +22,7 @@ const useUserLocation = ({ isGetUserLocationOnInitialLoad = false }) => {
     }
   }, []);
 
-  return { location, getUserCurrentLocation };
+  return { location, getUserCurrentLocation, setLocation };
 };
 
 export default useUserLocation;
