@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.icon{
+    min-width: 32px;
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: 16px;
+  }
+}

@@ -12,3 +12,8 @@
 .button:hover {
   opacity: 0.9;
 }
+
+.disable{
+  background-color: rgb(106, 175, 106);
+  cursor: not-allowed;
+}

@@ -1,9 +1,8 @@
 import React from "react";
-import { Outlet } from "react-router-dom"; //TODO: use this outlets
+import { Outlet } from "react-router-dom";
 
 import Navbar from "../../containers/NavBar/Navbar";
 import styles from "./CenterBoxLayout.module.css";
-import Login from "../../containers/Login/Login";
 
 const CenterBoxLayout = () => {
   return (
@@ -11,7 +10,7 @@ const CenterBoxLayout = () => {
       <Navbar />
       <div className={styles.OuterBox}>
         <div className={styles.innerBox}>
-          <Login />
+          <Outlet />
         </div>
       </div>
     </div>

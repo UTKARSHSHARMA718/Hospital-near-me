@@ -1,27 +1,31 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import About from "./containers/About/About";
 import CenterBoxLayout from "./pages/CenterBoxLayout/CenterBoxLayout";
+import Home from "./containers/Home/Home";
+import HomeLayout from "./pages/HomeLayout/HomeLayout";
+import Login from "./containers/Login/Login";
+import WithOnlyPublic from "./hoc/withOnlyPublic/WithOnlyPublic";
 import WithProtection from "./hoc/withProtection/WithProtection";
 import { ABOUT, AUTH, HOME } from "./constants/routeNames";
-import WithOnlyPublic from "./hoc/withOnlyPublic/WithOnlyPublic";
 
-// const ProtectedCenterBoxLayout = WithProtection(CenterBoxLayout);
+const ProtectedHomeLayout = WithProtection(HomeLayout);
 const PublicOnlyCenterBoxLayout = WithOnlyPublic(CenterBoxLayout);
 
 export const router = createBrowserRouter([
   {
     path: HOME,
-    element: <>Home</>,
-    children: [{ path: "", element: <p>Hello world qwdwddfe2</p> }],
+    element: <ProtectedHomeLayout />,
+    children: [{ path: "", element: <Home /> }],
   },
   {
     path: AUTH,
     element: <PublicOnlyCenterBoxLayout />,
-    // children: [{ path: "", element: <p>Hello world qwdwddfe2</p> }],
+    children: [{ path: "", element: <Login /> }],
   },
   {
     path: ABOUT,
-    element: <>About page!</>,
-    // children: [{ path: "", element: <p>Hello world qwdwddfe2</p> }],
+    element: <HomeLayout />,
+    children: [{ path: "", element: <About /> }],
   },
 ]);
