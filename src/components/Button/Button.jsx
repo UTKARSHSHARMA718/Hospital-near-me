@@ -1,10 +1,15 @@
 import React from "react";
+
 import styles from "./Button.module.css";
 
-const Button = ({ label, onClick, classes }) => {
-    
+const Button = ({ label, onClick, classes, disabled }) => {
   return (
-    <button {...{ onClick }} className={[styles.button, classes].join(" ")}>
+    <button
+      {...{ onClick, disabled }}
+      className={[styles.button, disabled ? styles.disable : "", classes].join(
+        " "
+      )}
+    >
       {label}
     </button>
   );
