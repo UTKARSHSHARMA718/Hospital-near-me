@@ -9,7 +9,7 @@ const Select = ({ options, label, onChange, value }) => {
       <select className={styles.container} {...{ onChange, value }}>
         {options?.map((option) => {
           return (
-            <option value={option} className={styles.option}>
+            <option key={option} value={option} className={styles.option}>
               {option}
             </option>
           );
