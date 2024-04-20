@@ -27,3 +27,6 @@ export const INFO_POINTS = [
 ];
 
 export const DEFAULT_CENTER = { lat: 28.6511181, lng: 77.4459297 };
+
+export const MAXIMUM_NEABY_HOSPITALS_OPTIONS = [5, 10, 15, 20];
+export const SEARCH_RADIUS_OPTIONS = [5, 10, 15, 20];

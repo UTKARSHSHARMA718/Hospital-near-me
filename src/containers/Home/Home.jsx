@@ -4,15 +4,22 @@ import toast from "react-hot-toast";
 import Button from "../../components/Button/Button";
 import Heading from "../../components/Heading/Heading";
 import Map from "../../components/Map/Map";
+import Select from "../../components/Select/Select";
 import useUserLocation from "../../hooks/useUserLocation";
 import { GlobalContext } from "../../Context/GlobalContext";
-import { DEFAULT_CENTER } from "../../constants/const";
+import {
+  DEFAULT_CENTER,
+  MAXIMUM_NEABY_HOSPITALS_OPTIONS,
+  SEARCH_RADIUS_OPTIONS,
+} from "../../constants/const";
 import styles from "./Home.module.css";
 
 const Home = () => {
   const [hospitals, setHospitals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedInfoBox, setSelectedInfoBox] = useState(-1);
+  const [searchingRadius, setSearchingRadius] = useState(10);
+  const [maxHospital, setMaxHospital] = useState(20);
 
   const { globalState } = useContext(GlobalContext);
   const { user } = globalState;
@@ -22,14 +29,12 @@ const Home = () => {
   });
   const isLatLngAvailabel = location?.lat && location?.lng;
   const GEOAPIFY_API_KEY = process?.env?.REACT_APP_GEOAPIFY_API_KEY;
-  const RADIUS = 10000;
-  const LIMIT = 20;
 
   const getNearbyHospitals = async (latitute, longitute) => {
     setIsLoading(true);
     try {
       let res = await fetch(
-        `https://api.geoapify.com/v2/places?categories=healthcare.hospital&filter=circle:${longitute},${latitute},${RADIUS}&bias=proximity:${longitute},${latitute}&limit=${LIMIT}&apiKey=${GEOAPIFY_API_KEY}`
+        `https://api.geoapify.com/v2/places?categories=healthcare.hospital&filter=circle:${longitute},${latitute},${searchingRadius*1000}&bias=proximity:${longitute},${latitute}&limit=${maxHospital}&apiKey=${GEOAPIFY_API_KEY}`
       );
       res = await res?.json();
       setHospitals(res?.features);
@@ -56,6 +61,20 @@ const Home = () => {
         key={`${hospitals?.length} ${selectedInfoBox}`}
         {...{ setLocation, selectedInfoBox, setSelectedInfoBox }}
       />
+      <div className={styles.optionsContainer}>
+        <Select
+          options={MAXIMUM_NEABY_HOSPITALS_OPTIONS}
+          label="Max-Hospital to be search for:"
+          onChange={(event)=>setMaxHospital(+event?.target?.value)}
+          value={maxHospital}
+          />
+        <Select
+          options={SEARCH_RADIUS_OPTIONS}
+          label="Searching Area Radius (in km):"
+          onChange={(event)=>setSearchingRadius(+event?.target?.value)}
+          value={searchingRadius}
+        />
+      </div>
       <Button
         label="Get nerby Hospitals"
         onClick={getHospitalsOnMap}

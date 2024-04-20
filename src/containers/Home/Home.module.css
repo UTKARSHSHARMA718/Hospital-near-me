@@ -19,3 +19,17 @@
     #a8ff78
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+.optionsContainer {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (max-width:600px) {
+  .optionsContainer{
+    flex-direction: column;
+  }
+}
