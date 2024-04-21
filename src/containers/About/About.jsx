@@ -1,3 +1,4 @@
+
 import React from "react";
 
 import Heading from "../../components/Heading/Heading";
@@ -12,7 +13,7 @@ const About = () => {
       <hr className={styles.horizantalLine}/>
       <div className={styles.infoPointsContainer}>
         {INFO_POINTS?.map((point) => (
-          <InfoPoint text={point?.text} icon={point?.icon} />
+          <InfoPoint text={point?.text} icon={point?.icon}key={point?.text} />
         ))}
       </div>
     </div>

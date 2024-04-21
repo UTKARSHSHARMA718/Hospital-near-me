@@ -22,6 +22,9 @@ const Home = () => {
   const [searchingRadius, setSearchingRadius] = useState(10);
   const [maxHospital, setMaxHospital] = useState(20);
 
+  // console.log({googleId________import: import.meta.env});
+  // console.log({googleId________process: process.env});
+
   const { globalState } = useContext(GlobalContext);
   const { user } = globalState;
 

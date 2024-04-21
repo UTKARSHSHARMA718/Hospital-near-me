@@ -31,7 +31,7 @@ const Login = () => {
       <div>
         <p>Login to {COMPANY_NAME}</p>
       </div>
-      <div className={styles.buttonContainer}>
+      <div>
         <GoogleLogin
           onSuccess={(credentialResponse) =>
             setCredentials(credentialResponse?.credential)
