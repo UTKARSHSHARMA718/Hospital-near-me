@@ -22,14 +22,9 @@
 
 .optionsContainer {
   display: flex;
+  flex-direction: column;
   gap: 32px;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-}
-
-@media (max-width:600px) {
-  .optionsContainer{
-    flex-direction: column;
-  }
 }

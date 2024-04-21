@@ -25,8 +25,8 @@ const useNavBar = () => {
   const { user } = globalState;
   const NAVLINKS = [
     { label: "Home", href: HOME, isProtected: true },
-    { label: "About", href: ABOUT, isShowAlways: true },
     { label: "Login", href: AUTH, isProtected: false },
+    { label: "About", href: ABOUT, isShowAlways: true },
     {
       label: "Logout",
       onClick: (callBack) => {
