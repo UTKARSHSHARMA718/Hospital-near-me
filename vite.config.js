@@ -3,10 +3,6 @@ import { defineConfig, loadEnv } from "vite";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv("development", process.cwd(), "");
-  console.log({ mode });
-  console.log({ clientId1: env?.REACT_APP_GOOGLE_CLIENT_ID });
-  console.log({ clientId2: process?.env?.REACT_APP_GOOGLE_CLIENT_ID });
-  console.log({ envJson: JSON.stringify(env) });
   return {
     // define: {
     //   "process.env.REACT_APP_GOOGLE_CLIENT_ID": JSON.stringify(
