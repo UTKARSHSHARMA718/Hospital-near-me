@@ -4,7 +4,6 @@ import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker";
 import mapStyles from "./mapStyles";
 import styles from "./Map.module.css";
-import { REACT_APP_GOOGLE_MAP_API_KEY } from "../../../credentials";
 
 const Map = ({
   coordinates,
@@ -17,7 +16,7 @@ const Map = ({
   return (
     <div className={styles.container} onBlur={() => setSelectedInfoBox(-1)}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: REACT_APP_GOOGLE_MAP_API_KEY }}
+        bootstrapURLKeys={{ key: process?.env?.REACT_APP_GOOGLE_MAP_API_KEY }}
         defaultCenter={coordinates}
         center={mapCenter}
         defaultZoom={12}

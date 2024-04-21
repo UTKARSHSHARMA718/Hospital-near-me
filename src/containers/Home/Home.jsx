@@ -12,7 +12,6 @@ import {
   MAXIMUM_NEABY_HOSPITALS_OPTIONS,
   SEARCH_RADIUS_OPTIONS,
 } from "../../constants/const";
-import { REACT_APP_GEOAPIFY_API_KEY } from "../../../credentials";
 import styles from "./Home.module.css";
 
 const Home = () => {
@@ -37,7 +36,7 @@ const Home = () => {
     setIsLoading(true);
     try {
       let res = await fetch(
-        `https://api.geoapify.com/v2/places?categories=healthcare.hospital&filter=circle:${longitute},${latitute},${searchingRadius*1000}&bias=proximity:${longitute},${latitute}&limit=${maxHospital}&apiKey=${REACT_APP_GEOAPIFY_API_KEY}`
+        `https://api.geoapify.com/v2/places?categories=healthcare.hospital&filter=circle:${longitute},${latitute},${searchingRadius*1000}&bias=proximity:${longitute},${latitute}&limit=${maxHospital}&apiKey=${process?.env?.REACT_APP_GEOAPIFY_API_KEY}`
       );
       res = await res?.json();
       setHospitals(res?.features);

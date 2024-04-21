@@ -5,7 +5,6 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import GlobalProvider from "./Context/GlobalContext.jsx";
 import { router } from "./config.jsx";
-import { REACT_APP_GOOGLE_CLIENT_ID } from "../credentials.js";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
