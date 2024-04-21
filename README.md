@@ -29,7 +29,7 @@
 ### Cloning the repository
 
 ```shell
-https://github.com/UTKARSHSHARMA718/Mamba-Bookings.git
+https://github.com/UTKARSHSHARMA718/Hospital-near-me.git
 ```
 
 ### Install packages
